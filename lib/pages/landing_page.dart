@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsfinal/pages/home.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -52,28 +53,38 @@ class _LandingPageState extends State<LandingPage> {
               height: 40.0,
             ),
             Container(
-              width: MediaQuery.of(context).size.width/1.2,
+              width: MediaQuery.of(context).size.width / 1.2,
               child: Material(
                 borderRadius: BorderRadius.circular(30),
                 elevation: 5.0,
-                child: Container(
-
-                  padding: EdgeInsets.symmetric(vertical: 15.0),
-                  decoration: BoxDecoration(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 15.0),
+                    decoration: BoxDecoration(
                       color: Colors.blue,
-                      borderRadius: BorderRadius.circular(30),),
-                      child: Center(
-                        child: Text(
-                          "Get Started",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Get Started",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
+                    ),
+                  ),
                 ),
               ),
-            )
+            ),
+
           ],
         ),
       ),
